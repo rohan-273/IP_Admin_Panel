@@ -1,0 +1,81 @@
+{
+    "persons": [
+        {
+            "id" : 1,
+            "name": "Rohan Brahmbhatt",
+            "mobile": 89327489735,
+            "karyakarName": "Dhaval",
+            "sk_ID": 1
+        },
+        {
+            "id" : 2,
+            "name": "Ankit Patel",
+            "mobile": 89273487945,
+            "karyakarName": "Nisarg",
+            "sk_ID": 3
+        },
+        {
+            "id": 3,
+            "name": "Rushi Patel",
+            "mobile": 74832749845,
+            "karyakarName": "Sagar",
+            "sk_ID": 5
+        },
+        {
+            "id": 4,
+            "name": "Sagar Parmar",
+            "mobile": 87238437834,
+            "karyakarName": "Sunil",
+            "sk_ID": 4
+        },
+        {
+            "id": 5,
+            "name": "Harshraj Gohil",
+            "mobile": 92384789237,
+            "karyakarName": "Hardik",
+            "sk_ID": 7
+        },
+        {
+            "id": 6,
+            "name": "Het Patel",
+            "mobile": 84237894723,
+            "karyakarName": "Sunil",
+            "sk_ID": 4
+        },
+        {
+            "id": 7,
+            "name": "Chirag Rajput",
+            "mobile": 74382749732,
+            "karyakarName": "Rohan",
+            "sk_ID": 10
+        },
+        {
+            "id": 8,
+            "name": "Krunal Patel",
+            "mobile": 87238437834,
+            "karyakarName": "Rohan",
+            "sk_ID": 10
+        },
+        {
+            "id": 9,
+            "name": "Manan Patel",
+            "mobile": 93274987329,
+            "karyakarName": "Hardik",
+            "sk_ID": 7
+        },
+        {
+            "id": 10,
+            "name": "Akshar Patel",
+            "mobile": 78932749873,
+            "karyakarName": "Dhaval",
+            "sk_ID": 1
+        },
+        {
+            "id": 11,
+            "name": "Krunal Patel",
+            "mobile": 93827483258,
+            "karyakarName": "Dhaval",
+            "sk_ID": 1
+        }
+    ]
+}

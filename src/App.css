@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+.login_bg {
+  background: rgb(180,234,255);
+  background: linear-gradient(180deg, rgba(180,234,255,1) 34%, rgba(255,255,255,1) 75%, rgba(255,255,255,1) 100%);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
