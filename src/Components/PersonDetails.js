@@ -3,7 +3,7 @@ import React from 'react'
 export default function PersonDetails({person}) {
   return (
     <div>
-        <table className="table mt-2">
+        <table className="table mt-2 table_shadow">
             <tr>                
                 <th>Name</th>
                 <th>Mobile</th>

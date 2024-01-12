@@ -107,8 +107,21 @@ export default function AdminPanel({ persons, onLogout }) {
   }));
 
   return (
-    <div className="p-5" style={{ height: "100vh" }}>
-      <div className="row" style={{ alignItems: "flex-end" }}>
+    <div className="m-3">
+      <div className="row">
+        <div className="col-md-6">
+          <button className="btn btn-info" onClick={handleViewAllYuvakDetails}>
+            View All Yuvak Details
+          </button>
+        </div>
+        <div className="col-md-6 text-right">
+          <button className="btn btn-danger" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <div className="row mt-3" style={{alignItems: "flex-end"}}>
         <div className="col-md-6">
           <label>Search Yuvak Name: </label>
           <Select
@@ -122,15 +135,6 @@ export default function AdminPanel({ persons, onLogout }) {
         <div className="col-md-6">
           <button className="btn btn-primary" onClick={handleAddToTable}>
             Add
-          </button>
-          <button className="btn btn-danger ml-5" onClick={handleLogout}>
-            Logout
-          </button>
-        </div>
-
-        <div className="col-md-6 mt-2">
-          <button className="btn btn-info" onClick={handleViewAllYuvakDetails}>
-            View All Yuvak Details
           </button>
         </div>
       </div>
@@ -149,7 +153,7 @@ export default function AdminPanel({ persons, onLogout }) {
       </div>
 
       {filteredDataTable?.length > 0 && (
-        <div className="mt-4">
+        <div className="mt-4 table_shadow">
           <h2>Table Data</h2>
           <button className="btn btn-success" onClick={handleDownloadExcel}>
             Download Excel

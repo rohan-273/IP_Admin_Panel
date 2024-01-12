@@ -5,6 +5,7 @@ import AdminPanel from "./Components/AdminPanel";
 import data from "./_helpers/data.json";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AllYuvakDetails from "./Components/AllYuvakDetails";
+import Login_Page from "./LocalStorage/Login_Page";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,12 +25,12 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router>      
       <div>
         {!isLoggedIn ? (
-          <Login onLogin={handleLogin} />
-        ) : (
-          <Routes>
+          <Login_Page onLogin={handleLogin} />
+          ) : (
+            <Routes>            
             <Route path="/all-yuvak-details" element={<AllYuvakDetails persons={data.persons} />} />
             <Route
               path="/"
