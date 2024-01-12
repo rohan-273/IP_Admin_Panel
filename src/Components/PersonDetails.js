@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function PersonDetails({person}) {
   return (
-    <div>
+    <div style={{marginTop: 15}}>
         <table className="table mt-2 table_shadow">
             <tr>                
                 <th>Name</th>

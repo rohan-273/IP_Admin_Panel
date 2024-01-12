@@ -5,9 +5,9 @@ import AdminPanel from "./Components/AdminPanel";
 import data from "./_helpers/data.json";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AllYuvakDetails from "./Components/AllYuvakDetails";
-import Login_Page from "./LocalStorage/Login_Page";
+// import Login_Page from "./LocalStorage/Login_Page";
 
-function App() {
+const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function App() {
     <Router>      
       <div>
         {!isLoggedIn ? (
-          <Login_Page onLogin={handleLogin} />
+          <Login onLogin={handleLogin} />
           ) : (
             <Routes>            
             <Route path="/all-yuvak-details" element={<AllYuvakDetails persons={data.persons} />} />

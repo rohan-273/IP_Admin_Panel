@@ -120,7 +120,7 @@ export default function AdminPanel({ persons, onLogout }) {
           </button>
         </div>
       </div>
-
+    <hr />
       <div className="row mt-3" style={{alignItems: "flex-end"}}>
         <div className="col-md-6">
           <label>Search Yuvak Name: </label>
@@ -140,7 +140,7 @@ export default function AdminPanel({ persons, onLogout }) {
       </div>
 
       {selectedPerson && <PersonDetails person={selectedPerson} />}
-
+    
       <div className="mt-3">
         <label>Search by Karyakar Name: </label>
         <input
