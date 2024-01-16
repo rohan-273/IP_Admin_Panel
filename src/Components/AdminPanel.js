@@ -13,7 +13,8 @@ export default function AdminPanel({ persons, onLogout }) {
   const tableRef = useRef(null);
   const navigate = useNavigate();
 
-  let srno = 1;  
+  let srno = 1;
+
   useEffect(() => {
     const storedTableData = localStorage.getItem("tableData");
     if (storedTableData) {
@@ -26,6 +27,10 @@ export default function AdminPanel({ persons, onLogout }) {
       allpersons: persons,
       state: { filteredDataTable },
     });
+  };
+
+  const handleScrollToBottom = () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   };
 
   const handlePersonChange = (selectedOption) => {
@@ -63,7 +68,7 @@ export default function AdminPanel({ persons, onLogout }) {
     if (tableRef.current && dataToDownload.length > 0) {
       const sheetData = dataToDownload?.map((person) => ({
         "Yuvak Name": person.name,
-        "Mobile": person.mobile,
+        Mobile: person.mobile,
         "Karyakar Name": person.karyakarName,
       }));
 
@@ -100,7 +105,7 @@ export default function AdminPanel({ persons, onLogout }) {
   const filteredDataTable = tableData?.filter((person) =>
     person?.karyakarName?.toLowerCase()?.includes(searchQuery?.toLowerCase())
   );
-  
+
   const options = persons?.map((person) => ({
     value: person.id,
     label: person.name,
@@ -120,8 +125,8 @@ export default function AdminPanel({ persons, onLogout }) {
           </button>
         </div>
       </div>
-    <hr />
-      <div className="row mt-3" style={{alignItems: "flex-end"}}>
+      <hr />
+      <div className="row mt-3" style={{ alignItems: "flex-end" }}>
         <div className="col-md-6">
           <label>Search Yuvak Name: </label>
           <Select
@@ -133,14 +138,22 @@ export default function AdminPanel({ persons, onLogout }) {
           />
         </div>
         <div className="col-md-6">
-          <button className="btn btn-primary" onClick={handleAddToTable}>
+          <button className="button" onClick={handleAddToTable}>
             Add
+          </button>
+
+          <button
+            className="btn btn-primary"
+            style={{marginLeft: 20}}
+            onClick={handleScrollToBottom}
+          >
+            Scroll to Bottom
           </button>
         </div>
       </div>
 
       {selectedPerson && <PersonDetails person={selectedPerson} />}
-    
+
       <div className="mt-3">
         <label>Search by Karyakar Name: </label>
         <input

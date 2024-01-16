@@ -8,7 +8,7 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredPersons = persons.filter((person) => {
+  const filteredPersons = persons?.filter((person) => {
     const matchesSearchTerm =
       person.karyakarName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (filteredDataTable?.find((item) => person?.id === item.id) &&
@@ -29,6 +29,7 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
           Back
         </Link>
       </div>
+      <hr />
       <div className="mb-3">
         <label>
           Search:
