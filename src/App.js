@@ -5,6 +5,7 @@ import AdminPanel from "./Components/AdminPanel";
 import data from "./_helpers/data.json";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AllYuvakDetails from "./Components/AllYuvakDetails";
+import PageNotFound from "./_helpers/PageNotFound";
 // import Login_Page from "./LocalStorage/Login_Page";
 
 const App = () => {
@@ -33,11 +34,12 @@ const App = () => {
             <Routes>            
             <Route path="/all-yuvak-details" element={<AllYuvakDetails persons={data.persons} />} />
             <Route
-              path="/"
+              path="/dashboard"
               element={
                 <AdminPanel persons={data.persons} onLogout={handleLogout} />
               }
             />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         )}
       </div>

@@ -25,7 +25,7 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
     <div className="m-3">
       <div className="d-flex justify-content-between align-items-center">
         <h2>All Yuvak Details</h2>
-        <Link to="/" className="btn btn-info mb-3" onClick={onBack}>
+        <Link to="/dashboard" className="btn btn-info mb-3" onClick={onBack}>
           Back
         </Link>
       </div>
