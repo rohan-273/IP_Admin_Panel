@@ -4,16 +4,24 @@ import * as XLSX from "xlsx";
 import Select from "react-select";
 import ScrollToTop from "react-scroll-up";
 import { useNavigate } from "react-router-dom";
+import CustomModal from "../utils/CustomModal";
 
 export default function AdminPanel({ persons, onLogout }) {
   const [selectedPerson, setSelectedPerson] = useState(null);
   const [tableData, setTableData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
   const tableRef = useRef(null);
   const navigate = useNavigate();
 
   let srno = 1;
+ 
+  const openModal = (message) => {
+    setModalMessage(message);
+    setShowModal(true);
+  };
 
   useEffect(() => {
     const storedTableData = localStorage.getItem("tableData");
@@ -43,7 +51,7 @@ export default function AdminPanel({ persons, onLogout }) {
 
   const handleAddToTable = () => {
     if (!selectedPerson) {
-      alert("Please select any Yuvak.");
+      openModal("Please select any Yuvak.");
       return;
     }
 
@@ -52,7 +60,7 @@ export default function AdminPanel({ persons, onLogout }) {
       (person) => person.id === selectedPerson.id
     );
     if (isAlreadyAdded) {
-      alert("This Yuvak entry is already added...");
+      openModal("This Yuvak entry is already added...");
       return;
     }
 
@@ -181,7 +189,7 @@ export default function AdminPanel({ persons, onLogout }) {
 
       {filteredDataTable?.length > 0 && (
         <div className="mt-4 table_shadow">
-          <h2>Table Data</h2>
+          <h2>Attendence Sheet</h2>
           <button className="btn btn-success" onClick={handleDownloadExcel}>
             Download Excel
           </button>
@@ -223,6 +231,11 @@ export default function AdminPanel({ persons, onLogout }) {
           style={{ "font-size": 40 }}
         ></i>
       </ScrollToTop>
+      <CustomModal
+        isOpen={showModal}
+        onRequestClose={() => setShowModal(false)}
+        message={modalMessage}
+      />
     </div>
   );
 }

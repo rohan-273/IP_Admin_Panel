@@ -52,7 +52,7 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
           </tr>
         </thead>
         <tbody>
-          {filteredPersons.map((person) => (
+          {filteredPersons?.map((person) => (
             <tr key={person.id}>
               <td>{srNo++}</td>
               <td>{person.name}</td>
