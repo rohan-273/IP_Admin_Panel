@@ -29,9 +29,9 @@ export default function AdminPanel({ persons, onLogout }) {
     });
   };
 
-  const handleScrollToBottom = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  };
+  // const handleScrollToBottom = () => {
+  //   window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  // };
 
   const handlePersonChange = (selectedOption) => {
     setSelectedOption(selectedOption);
@@ -47,10 +47,10 @@ export default function AdminPanel({ persons, onLogout }) {
       return;
     }
     if (selectedPerson) {
-      setTableData((prevData) => [...prevData, selectedPerson]);
+      setTableData((prevData) => [selectedPerson, ...prevData]);
       localStorage.setItem(
         "tableData",
-        JSON.stringify([...tableData, selectedPerson])
+        JSON.stringify([selectedPerson, ...tableData])
       );
     }
   };
@@ -146,13 +146,13 @@ export default function AdminPanel({ persons, onLogout }) {
             Add
           </button>
 
-          <button
+          {/* <button
             className="btn btn-primary"
             style={{ right: 15, position: "absolute" }}
             onClick={handleScrollToBottom}
           >
             Scroll to Bottom
-          </button>
+          </button> */}
         </div>
       </div>
 
