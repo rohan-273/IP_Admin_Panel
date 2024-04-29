@@ -17,7 +17,7 @@ export default function AdminPanel({ persons, onLogout }) {
   const navigate = useNavigate();
 
   let srno = 1;
- 
+
   const openModal = (message) => {
     setModalMessage(message);
     setShowModal(true);
@@ -87,16 +87,21 @@ export default function AdminPanel({ persons, onLogout }) {
   const handleDownloadExcel = () => {
     const dataToDownload = searchQuery !== "" ? filteredDataTable : tableData;
 
+    dataToDownload.sort((a, b) => a.sk_ID - b.sk_ID);
+
     if (tableRef.current && dataToDownload.length > 0) {
       const sheetData = dataToDownload?.map((person) => ({
+        sk_ID: person.sk_ID,
+        "Karyakar Name": person.karyakarName,
         "Yuvak Name": person.name,
         Mobile: person.mobile,
-        "Karyakar Name": person.karyakarName,
       }));
 
       const ws = XLSX.utils.json_to_sheet(sheetData);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+      ws["!cols"] = [{ wch: 5 }, { wch: 20 }, { wch: 20 }, { wch: 20 }];
 
       const wbout = XLSX.write(wb, {
         bookType: "xlsx",
