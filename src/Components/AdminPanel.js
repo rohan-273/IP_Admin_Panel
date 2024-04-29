@@ -46,6 +46,16 @@ export default function AdminPanel({ persons, onLogout }) {
       alert("Please select any Yuvak.");
       return;
     }
+
+    // Check if the selected person already exists in the table data
+    const isAlreadyAdded = tableData.some(
+      (person) => person.id === selectedPerson.id
+    );
+    if (isAlreadyAdded) {
+      alert("This Yuvak entry is already added...");
+      return;
+    }
+
     if (selectedPerson) {
       setTableData((prevData) => [selectedPerson, ...prevData]);
       localStorage.setItem(
