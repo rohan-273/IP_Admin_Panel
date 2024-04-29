@@ -42,6 +42,10 @@ export default function AdminPanel({ persons, onLogout }) {
   };
 
   const handleAddToTable = () => {
+    if (!selectedPerson) {
+      alert("Please select any Yuvak.");
+      return;
+    }
     if (selectedPerson) {
       setTableData((prevData) => [...prevData, selectedPerson]);
       localStorage.setItem(
@@ -144,7 +148,7 @@ export default function AdminPanel({ persons, onLogout }) {
 
           <button
             className="btn btn-primary"
-            style={{marginLeft: 20}}
+            style={{ right: 15, position: "absolute" }}
             onClick={handleScrollToBottom}
           >
             Scroll to Bottom
