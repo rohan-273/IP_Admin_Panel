@@ -17,9 +17,8 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
         searchTerm.toLowerCase() === "absent");
 
     return matchesSearchTerm;
-  });
-
-  let srNo = 1;
+  })
+  .sort((a,b) => a.sk_ID - b.sk_ID);  
 
   return (
     <div className="m-3">
@@ -43,21 +42,21 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
       </div>
       <table className="table table_shadow">
         <thead>
-          <tr>
-            <th>Sr no.</th>
+          <tr>            
+            <th>Sk ID</th>
+            <th>Sampark Karyakar</th>
             <th>Yuvak Name</th>
-            <th>Mobile</th>
-            <th>Karyakar Name</th>
+            <th>Mobile no</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
           {filteredPersons?.map((person) => (
-            <tr key={person.id}>
-              <td>{srNo++}</td>
+            <tr key={person.id}>              
+              <td>{person.sk_ID}</td>
+              <td>{person.karyakarName}</td>
               <td>{person.name}</td>
               <td>{person.mobile}</td>
-              <td>{person.karyakarName}</td>
               <td>
                 {filteredDataTable?.find((item) => person?.id === item.id)
                   ? "Present"

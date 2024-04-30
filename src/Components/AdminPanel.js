@@ -5,6 +5,7 @@ import Select from "react-select";
 import ScrollToTop from "react-scroll-up";
 import { useNavigate } from "react-router-dom";
 import CustomModal from "../utils/CustomModal";
+import CustomButton from "../utils/CustomButton";
 
 export default function AdminPanel({ persons, onLogout }) {
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -36,10 +37,6 @@ export default function AdminPanel({ persons, onLogout }) {
       state: { filteredDataTable },
     });
   };
-
-  // const handleScrollToBottom = () => {
-  //   window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  // };
 
   const handlePersonChange = (selectedOption) => {
     setSelectedOption(selectedOption);
@@ -142,14 +139,18 @@ export default function AdminPanel({ persons, onLogout }) {
     <div className="m-3">
       <div className="row">
         <div className="col-md-6">
-          <button className="btn btn-info" onClick={handleViewAllYuvakDetails}>
-            View All Yuvak Details
-          </button>
+          <CustomButton
+            onClick={handleViewAllYuvakDetails}
+            label="View All Yuvak Details"
+            className="btn btn-info"
+          />
         </div>
         <div className="col-md-6 text-right">
-          <button className="btn btn-danger" onClick={handleLogout}>
-            Logout
-          </button>
+          <CustomButton
+            onClick={handleLogout}
+            label="Logout"
+            className="btn btn-danger"
+          />
         </div>
       </div>
       <hr />
@@ -165,17 +166,11 @@ export default function AdminPanel({ persons, onLogout }) {
           />
         </div>
         <div className="col-md-6">
-          <button className="button" onClick={handleAddToTable}>
-            Add
-          </button>
-
-          {/* <button
-            className="btn btn-primary"
-            style={{ right: 15, position: "absolute" }}
-            onClick={handleScrollToBottom}
-          >
-            Scroll to Bottom
-          </button> */}
+          <CustomButton
+            onClick={handleAddToTable}
+            label="Add"
+            className="button"
+          />
         </div>
       </div>
 
@@ -195,16 +190,18 @@ export default function AdminPanel({ persons, onLogout }) {
       {filteredDataTable?.length > 0 && (
         <div className="mt-4 table_shadow">
           <h2>Attendence Sheet</h2>
-          <button className="btn btn-success" onClick={handleDownloadExcel}>
-            Download Excel
-          </button>
+          <CustomButton
+            onClick={handleDownloadExcel}
+            label="Download Excel"
+            className="btn btn-success"
+          />
           <table className="table mt-2" ref={tableRef}>
             <thead>
               <tr>
                 <th>Sr no.</th>
                 <th>Yuvak Name</th>
-                <th>Mobile</th>
-                <th>Karyakar Name</th>
+                <th>Mobile no</th>
+                <th>Sampark Karyakar</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -215,13 +212,12 @@ export default function AdminPanel({ persons, onLogout }) {
                   <td>{person.name}</td>
                   <td>{person.mobile}</td>
                   <td>{person.karyakarName}</td>
-                  <td>
-                    <button
-                      className="btn btn-danger"
+                  <td>                    
+                    <CustomButton
                       onClick={() => handleDeleteData(person.id)}
-                    >
-                      Delete
-                    </button>
+                      label="Delete"
+                      className="btn btn-danger"
+                    />
                   </td>
                 </tr>
               ))}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Akshardham from "../_helpers/Akshardham.jpg";
+import CustomButton from "../utils/CustomButton";
 
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState("admin@gmail.com");
@@ -31,16 +32,14 @@ export default function Login({ onLogin }) {
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-5 text-black">
                     <form>
-                      <div class="d-flex align-items-center justify-content-center mb-3 pb-1">                        
+                      <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
                         <span class="h1 fw-bold mb-0">Admin</span>
                       </div>
                       <h5 class="fw-normal mb-3 pb-3">
                         Please enter your email and password!
                       </h5>
                       <div class="form-outline mb-4">
-                        <label class="form-label">
-                          Email address
-                        </label>
+                        <label class="form-label">Email address</label>
                         <input
                           type="email"
                           value={username}
@@ -49,9 +48,7 @@ export default function Login({ onLogin }) {
                         />
                       </div>
                       <div class="form-outline mb-4">
-                        <label class="form-label">
-                          Password
-                        </label>
+                        <label class="form-label">Password</label>
                         <input
                           type="password"
                           value={password}
@@ -60,13 +57,11 @@ export default function Login({ onLogin }) {
                         />
                       </div>
                       <div class="pt-1 mb-4">
-                        <button
-                          class="btn btn-dark btn-lg btn-block"
-                          type="button"
+                        <CustomButton
                           onClick={handleLogin}
-                        >
-                          Login
-                        </button>
+                          label="Login"
+                          className="btn btn-dark btn-lg btn-block"
+                        />
                       </div>
                     </form>
                   </div>

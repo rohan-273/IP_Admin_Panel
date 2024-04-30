@@ -6,8 +6,8 @@ export default function PersonDetails({person}) {
         <table className="table mt-2 table_shadow">
             <tr>                
                 <th>Name</th>
-                <th>Mobile</th>
-                <th>Karyakar Name</th>                
+                <th>Mobile no</th>
+                <th>Sampark Karyakar</th>  
             </tr>
             <tr>
                 <td>{person.name}</td>
