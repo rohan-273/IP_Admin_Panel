@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import PersonDetails from "./PersonDetails";
-import * as XLSX from "xlsx";
 import Select from "react-select";
 import ScrollToTop from "react-scroll-up";
 import { useNavigate } from "react-router-dom";
 import CustomModal from "../utils/CustomModal";
 import CustomButton from "../utils/CustomButton";
+import { isToday } from "../utils";
+import ExcelHandler from "../utils/ExcelHandler";
 
 export default function AdminPanel({ persons, onLogout }) {
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -81,43 +82,6 @@ export default function AdminPanel({ persons, onLogout }) {
     }
   };
 
-  const handleDownloadExcel = () => {
-    const dataToDownload = searchQuery !== "" ? filteredDataTable : tableData;
-
-    dataToDownload.sort((a, b) => a.sk_ID - b.sk_ID);
-
-    if (tableRef.current && dataToDownload.length > 0) {
-      const sheetData = dataToDownload?.map((person) => ({
-        sk_ID: person.sk_ID,
-        "Karyakar Name": person.karyakarName,
-        "Yuvak Name": person.name,
-        Mobile: person.mobile,
-      }));
-
-      const ws = XLSX.utils.json_to_sheet(sheetData);
-      const wb = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
-
-      ws["!cols"] = [{ wch: 5 }, { wch: 20 }, { wch: 20 }, { wch: 20 }];
-
-      const wbout = XLSX.write(wb, {
-        bookType: "xlsx",
-        bookSST: false,
-        type: "array",
-      });
-
-      const blob = new Blob([wbout], { type: "application/octet-stream" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `IP-yuvak_sabha_${new Date()}.xlsx`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-  };
-
   const handleDeleteData = (personId) => {
     const updatedTableData = tableData?.filter(
       (person) => person.id !== personId
@@ -190,16 +154,17 @@ export default function AdminPanel({ persons, onLogout }) {
       {filteredDataTable?.length > 0 && (
         <div className="mt-4 table_shadow">
           <h2>Attendence Sheet</h2>
-          <CustomButton
-            onClick={handleDownloadExcel}
-            label="Download Excel"
-            className="btn btn-success"
+          <ExcelHandler
+            data={tableData}
+            searchQuery={searchQuery}
+            filteredData={filteredDataTable}
           />
           <table className="table mt-2" ref={tableRef}>
             <thead>
               <tr>
                 <th>Sr no.</th>
                 <th>Yuvak Name</th>
+                <th>Birth Date</th>
                 <th>Mobile no</th>
                 <th>Sampark Karyakar</th>
                 <th>Action</th>
@@ -207,12 +172,26 @@ export default function AdminPanel({ persons, onLogout }) {
             </thead>
             <tbody>
               {filteredDataTable?.map((person) => (
-                <tr key={person.id}>
+                <tr
+                  key={person.id}
+                  style={{
+                    background: isToday(
+                      new Date(
+                        person.birthDate.split("-")[2],
+                        person.birthDate.split("-")[1] - 1,
+                        person.birthDate.split("-")[0]
+                      )
+                    )
+                      ? "#a7ebf4"
+                      : "inherit",
+                  }}
+                >
                   <td>{srno++}</td>
                   <td>{person.name}</td>
+                  <td>{person.birthDate}</td>
                   <td>{person.mobile}</td>
                   <td>{person.karyakarName}</td>
-                  <td>                    
+                  <td>
                     <CustomButton
                       onClick={() => handleDeleteData(person.id)}
                       label="Delete"
@@ -227,7 +206,7 @@ export default function AdminPanel({ persons, onLogout }) {
       )}
       <ScrollToTop showUnder={160}>
         <i
-          class="fa fa-arrow-circle-o-up"
+          className="fa fa-arrow-circle-o-up"
           aria-hidden="true"
           style={{ "font-size": 40 }}
         ></i>

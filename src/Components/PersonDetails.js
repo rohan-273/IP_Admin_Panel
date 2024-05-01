@@ -6,11 +6,13 @@ export default function PersonDetails({person}) {
         <table className="table mt-2 table_shadow">
             <tr>                
                 <th>Name</th>
+                <th>Birth Date</th>
                 <th>Mobile no</th>
-                <th>Sampark Karyakar</th>  
+                <th>Sampark Karyakar</th>
             </tr>
             <tr>
                 <td>{person.name}</td>
+                <td>{person.birthDate}</td>
                 <td>{person.mobile}</td>
                 <td>{person.karyakarName}</td>
             </tr>

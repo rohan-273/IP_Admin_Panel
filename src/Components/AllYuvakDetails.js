@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ScrollToTop from "react-scroll-up";
+import { isToday } from "../utils";
 
 const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
   const location = useLocation();
@@ -8,17 +9,18 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredPersons = persons?.filter((person) => {
-    const matchesSearchTerm =
-      person.karyakarName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (filteredDataTable?.find((item) => person?.id === item.id) &&
-        searchTerm.toLowerCase() === "present") ||
-      (!filteredDataTable?.find((item) => person?.id === item.id) &&
-        searchTerm.toLowerCase() === "absent");
+  const filteredPersons = persons
+    ?.filter((person) => {
+      const matchesSearchTerm =
+        person.karyakarName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (filteredDataTable?.find((item) => person?.id === item.id) &&
+          searchTerm.toLowerCase() === "present") ||
+        (!filteredDataTable?.find((item) => person?.id === item.id) &&
+          searchTerm.toLowerCase() === "absent");
 
-    return matchesSearchTerm;
-  })
-  .sort((a,b) => a.sk_ID - b.sk_ID);  
+      return matchesSearchTerm;
+    })
+    .sort((a, b) => a.sk_ID - b.sk_ID);
 
   return (
     <div className="m-3">
@@ -42,20 +44,35 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
       </div>
       <table className="table table_shadow">
         <thead>
-          <tr>            
+          <tr>
             <th>Sk ID</th>
             <th>Sampark Karyakar</th>
             <th>Yuvak Name</th>
+            <th>Birth Date</th>
             <th>Mobile no</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
           {filteredPersons?.map((person) => (
-            <tr key={person.id}>              
+            <tr
+              key={person.id}
+              style={{
+                background: isToday(
+                  new Date(
+                    person.birthDate.split("-")[2],
+                    person.birthDate.split("-")[1] - 1,
+                    person.birthDate.split("-")[0]
+                  )
+                )
+                  ? "#a7ebf4"
+                  : "inherit",
+              }}
+            >
               <td>{person.sk_ID}</td>
               <td>{person.karyakarName}</td>
               <td>{person.name}</td>
+              <td>{person.birthDate}</td>
               <td>{person.mobile}</td>
               <td>
                 {filteredDataTable?.find((item) => person?.id === item.id)

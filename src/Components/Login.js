@@ -16,47 +16,47 @@ export default function Login({ onLogin }) {
   };
   return (
     <div style={{ height: "100vh" }} className="login_bg">
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col col-xl-10">
-            <div class="card" style={{ borderRadius: "1rem" }}>
-              <div class="row g-0">
-                <div class="col-md-6 col-lg-5 d-none d-md-block">
+      <div className="container py-5 h-100">
+        <div className="row d-flex justify-content-center align-items-center h-100">
+          <div className="col col-xl-10">
+            <div className="card" style={{ borderRadius: "1rem" }}>
+              <div className="row g-0">
+                <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
                     src={Akshardham}
                     alt="login form"
-                    class="img-fluid"
+                    className="img-fluid"
                     style={{ borderRadius: "1rem 0 0 1rem", opacity: "0.8" }}
                   />
                 </div>
-                <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                  <div class="card-body p-4 p-lg-5 text-black">
+                <div className="col-md-6 col-lg-7 d-flex align-items-center">
+                  <div className="card-body p-4 p-lg-5 text-black">
                     <form>
-                      <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
-                        <span class="h1 fw-bold mb-0">Admin</span>
+                      <div className="d-flex align-items-center justify-content-center mb-3 pb-1">
+                        <span className="h1 fw-bold mb-0">Admin</span>
                       </div>
-                      <h5 class="fw-normal mb-3 pb-3">
+                      <h5 className="fw-normal mb-3 pb-3">
                         Please enter your email and password!
                       </h5>
-                      <div class="form-outline mb-4">
-                        <label class="form-label">Email address</label>
+                      <div className="form-outline mb-4">
+                        <label className="form-label">Email address</label>
                         <input
                           type="email"
                           value={username}
                           onChange={(e) => setUsername(e.target.value)}
-                          class="form-control form-control-lg"
+                          className="form-control form-control-lg"
                         />
                       </div>
-                      <div class="form-outline mb-4">
-                        <label class="form-label">Password</label>
+                      <div className="form-outline mb-4">
+                        <label className="form-label">Password</label>
                         <input
                           type="password"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
-                          class="form-control form-control-lg"
+                          className="form-control form-control-lg"
                         />
                       </div>
-                      <div class="pt-1 mb-4">
+                      <div className="pt-1 mb-4">
                         <CustomButton
                           onClick={handleLogin}
                           label="Login"

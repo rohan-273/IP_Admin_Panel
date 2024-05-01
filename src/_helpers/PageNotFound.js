@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 
 export default function PageNotFound() {
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="error-template">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12">
+          <div className="error-template">
             <h1>Oops!</h1>
             <h2>404 Page Not Found</h2>
-            <div class="error-details">
+            <div className="error-details">
               Sorry, an error has occured, Requested page not found!
             </div>
-            <div class="error-actions">            
+            <div className="error-actions">            
               <Link to="/dashboard" className="btn btn-info mb-3">
-              <i class="fa fa-home" aria-hidden="true"></i> Take Me Home{" "}
+              <i className="fa fa-home" aria-hidden="true"></i> Take Me Home{" "}
               </Link>
             </div>
           </div>
