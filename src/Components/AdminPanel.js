@@ -7,6 +7,7 @@ import CustomModal from "../utils/CustomModal";
 import CustomButton from "../utils/CustomButton";
 import { isToday } from "../utils";
 import ExcelHandler from "../utils/ExcelHandler";
+import "../styles/AdminPanel.css";
 
 export default function AdminPanel({ persons, onLogout }) {
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -53,7 +54,6 @@ export default function AdminPanel({ persons, onLogout }) {
       return;
     }
 
-    // Check if the selected person already exists in the table data
     const isAlreadyAdded = tableData.some(
       (person) => person.id === selectedPerson.id
     );
@@ -100,122 +100,116 @@ export default function AdminPanel({ persons, onLogout }) {
   }));
 
   return (
-    <div className="m-3">
-      <div className="row">
-        <div className="col-md-6">
+    <div className="admin-panel">
+      <div className="admin-panel-header">
+        <div className="admin-panel-header-left">
           <CustomButton
             onClick={handleViewAllYuvakDetails}
             label="View All Yuvak Details"
-            className="btn btn-info"
+            className="button button-primary"
           />
         </div>
-        <div className="col-md-6 text-right">
+        <div className="admin-panel-header-right">
           <CustomButton
             onClick={handleLogout}
             label="Logout"
-            className="btn btn-danger"
+            className="button button-danger"
           />
         </div>
       </div>
-      <hr />
-      <div className="row mt-3" style={{ alignItems: "flex-end" }}>
-        <div className="col-md-6">
-          <label>Search Yuvak Name: </label>
-          <Select
-            options={options}
-            value={selectedOption}
-            onChange={handlePersonChange}
-            placeholder="Yuvak Name"
-            isClearable={true}
-          />
-        </div>
-        <div className="col-md-6">
-          <CustomButton
-            onClick={handleAddToTable}
-            label="Add"
-            className="button"
-          />
-        </div>
-      </div>
-
-      {selectedPerson && <PersonDetails person={selectedPerson} />}
-
-      <div className="mt-3">
-        <label>Search by Karyakar Name: </label>
-        <input
-          type="text"
-          placeholder="Karyakar Name"
-          className="form-control"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </div>
-
-      {filteredDataTable?.length > 0 && (
-        <div className="mt-4 table_shadow">
-          <div className="row">
-            <div className="col-md-6">
-              <h2>Attendence Sheet</h2>
-            </div>
-            <div className="col-md-6 text-right">
-              <ExcelHandler
-                data={tableData}
-                searchQuery={searchQuery}
-                filteredData={filteredDataTable}
-              />
-            </div>
+      <hr className="divider" />
+      <div className="admin-panel-content">
+        <div className="admin-panel-section">
+          <label className="admin-panel-label">Search Yuvak Name:</label>
+          <div className="search-yuvak">
+            <Select
+              options={options}
+              value={selectedOption}
+              onChange={handlePersonChange}
+              placeholder="Select Yuvak Name"
+              isClearable={true}
+              className="select-input"
+            />
+            <CustomButton
+              onClick={handleAddToTable}
+              label="Add"
+              className="button button-success ml-2"              
+            />
           </div>
-          <table className="table mt-2" ref={tableRef}>
-            <thead>
-              <tr>
-                <th>Sr no.</th>
-                <th>Yuvak Name</th>
-                <th>Birth Date</th>
-                <th>Mobile no</th>
-                <th>Sampark Karyakar</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredDataTable?.map((person) => (
-                <tr
-                  key={person.id}
-                  style={{
-                    background: isToday(
-                      new Date(
-                        person.birthDate.split("-")[2],
-                        person.birthDate.split("-")[1] - 1,
-                        person.birthDate.split("-")[0]
-                      )
-                    )
-                      ? "#a7ebf4"
-                      : "inherit",
-                  }}
-                >
-                  <td>{srno++}</td>
-                  <td>{person.name}</td>
-                  <td>{person.birthDate}</td>
-                  <td>{person.mobile}</td>
-                  <td>{person.karyakarName}</td>
-                  <td>
-                    <CustomButton
-                      onClick={() => handleDeleteData(person.id)}
-                      label="Delete"
-                      className="btn btn-danger"
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
-      )}
+        <div className="admin-panel-section">
+          {selectedPerson && <PersonDetails person={selectedPerson} />}
+        </div>
+        <div className="admin-panel-section">
+          <label className="admin-panel-label">Search by Karyakar Name:</label>
+          <input
+            type="text"
+            placeholder="Search Karyakar Name"
+            className="search-input"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+        <div className="admin-panel-section full-width">
+          {filteredDataTable?.length > 0 && (
+            <div className="table-container">
+              <div className="table-header">
+                <h4 className="table-heading">Attendance Sheet</h4>
+                <ExcelHandler
+                  data={tableData}
+                  searchQuery={searchQuery}
+                  filteredData={filteredDataTable}
+                />
+              </div>
+              <table className="custom-table" ref={tableRef}>
+                <thead>
+                  <tr>
+                    <th>Sr no.</th>
+                    <th>Yuvak Name</th>
+                    <th>Birth Date</th>
+                    <th>Mobile no</th>
+                    <th>Sampark Karyakar</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredDataTable?.map((person) => (
+                    <tr
+                      key={person.id}
+                      style={{
+                        background: isToday(
+                          new Date(
+                            person.birthDate.split("-")[2],
+                            person.birthDate.split("-")[1] - 1,
+                            person.birthDate.split("-")[0]
+                          )
+                        )
+                          ? "#a7ebf4"
+                          : "inherit",
+                      }}
+                    >
+                      <td>{srno++}</td>
+                      <td>{person.name}</td>
+                      <td>{person.birthDate}</td>
+                      <td>{person.mobile}</td>
+                      <td>{person.karyakarName}</td>
+                      <td>
+                        <CustomButton
+                          onClick={() => handleDeleteData(person.id)}
+                          label="Delete"
+                          className="button button-danger"
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      </div>
       <ScrollToTop showUnder={160}>
-        <i
-          className="fa fa-arrow-circle-o-up"
-          aria-hidden="true"
-          style={{ "font-size": 40 }}
-        ></i>
+        <i className="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
       </ScrollToTop>
       <CustomModal
         isOpen={showModal}
