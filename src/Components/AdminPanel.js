@@ -153,12 +153,18 @@ export default function AdminPanel({ persons, onLogout }) {
 
       {filteredDataTable?.length > 0 && (
         <div className="mt-4 table_shadow">
-          <h2>Attendence Sheet</h2>
-          <ExcelHandler
-            data={tableData}
-            searchQuery={searchQuery}
-            filteredData={filteredDataTable}
-          />
+          <div className="row">
+            <div className="col-md-6">
+              <h2>Attendence Sheet</h2>
+            </div>
+            <div className="col-md-6 text-right">
+              <ExcelHandler
+                data={tableData}
+                searchQuery={searchQuery}
+                filteredData={filteredDataTable}
+              />
+            </div>
+          </div>
           <table className="table mt-2" ref={tableRef}>
             <thead>
               <tr>
