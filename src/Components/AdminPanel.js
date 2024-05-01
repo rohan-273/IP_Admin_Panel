@@ -194,11 +194,16 @@ export default function AdminPanel({ persons, onLogout }) {
                       <td>{person.mobile}</td>
                       <td>{person.karyakarName}</td>
                       <td>
-                        <CustomButton
+                        {/* <CustomButton
                           onClick={() => handleDeleteData(person.id)}
                           label="Delete"
                           className="button button-danger"
-                        />
+                        /> */}
+                        <i
+                          className="fa fa-trash"
+                          onClick={() => handleDeleteData(person.id)}
+                          style={{ color: "red", cursor: "pointer", fontSize: 20 }}
+                        ></i>
                       </td>
                     </tr>
                   ))}
