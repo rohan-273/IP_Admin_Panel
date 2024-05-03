@@ -59,6 +59,7 @@
   
   .table-heading {
     margin: 0;
+    text-decoration: underline;
   }
   
   .custom-table {
