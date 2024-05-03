@@ -1,5 +1,4 @@
 {
-  "homepage": "https://rohan-273.github.io/IP_Admin_Panel",
   "name": "admin_panel_baps",
   "version": "0.1.0",
   "private": true,
@@ -14,7 +13,6 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
-    "react-datepicker": "^6.9.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.21.1",

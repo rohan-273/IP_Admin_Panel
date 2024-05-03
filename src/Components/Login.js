@@ -3,8 +3,8 @@ import Akshardham from "../_helpers/Akshardham.jpg";
 import CustomButton from "../utils/CustomButton";
 
 export default function Login({ onLogin }) {
-  const [username, setUsername] = useState("admin@gmail.com");
-  const [password, setPassword] = useState("admin@123");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     if (username === "admin@gmail.com" && password === "admin@123") {
@@ -33,8 +33,13 @@ export default function Login({ onLogin }) {
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form>
                       <div className="d-flex align-items-center justify-content-center mb-3 pb-5">
-                        <span className="h2 fw-bold mb-0" style={{color: "#ff8400"}}>Indrapuri Yuvak Mandal</span>
-                      </div>                     
+                        <span
+                          className="h2 fw-bold mb-0"
+                          style={{ color: "#ff8400" }}
+                        >
+                          Indrapuri Yuvak Mandal
+                        </span>
+                      </div>
                       <div className="form-outline mb-4">
                         <label className="form-label">Email address</label>
                         <input

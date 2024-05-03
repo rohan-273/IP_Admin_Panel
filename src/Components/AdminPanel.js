@@ -133,7 +133,7 @@ export default function AdminPanel({ persons, onLogout }) {
             <CustomButton
               onClick={handleAddToTable}
               label="Add"
-              className="button button-success ml-2"              
+              className="button button-success ml-2"
             />
           </div>
         </div>
@@ -202,7 +202,11 @@ export default function AdminPanel({ persons, onLogout }) {
                         <i
                           className="fa fa-trash"
                           onClick={() => handleDeleteData(person.id)}
-                          style={{ color: "red", cursor: "pointer", fontSize: 20 }}
+                          style={{
+                            color: "red",
+                            cursor: "pointer",
+                            fontSize: 20,
+                          }}
                         ></i>
                       </td>
                     </tr>
