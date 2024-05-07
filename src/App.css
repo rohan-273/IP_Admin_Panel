@@ -60,6 +60,10 @@
   margin-right: 10px;
 }
 
+.login-btn {
+  background-color: #58b0fd;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

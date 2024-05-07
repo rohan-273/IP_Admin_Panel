@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Akshardham from "../_helpers/Akshardham.jpg";
+import logo from "../_helpers/logo.png";
 import CustomButton from "../utils/CustomButton";
 
 export default function Login({ onLogin }) {
@@ -32,7 +33,15 @@ export default function Login({ onLogin }) {
                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form>
-                      <div className="d-flex align-items-center justify-content-center mb-3 pb-5">
+                      <div
+                        className="d-flex align-items-center justify-content-center mb-3 pb-5"
+                        style={{ flexDirection: "column" }}
+                      >
+                        <img
+                          src={logo}
+                          alt="logo"
+                          style={{ height: "auto", width: 100 }}
+                        />
                         <span
                           className="h2 fw-bold mb-0"
                           style={{ color: "#ff8400" }}
@@ -62,7 +71,7 @@ export default function Login({ onLogin }) {
                         <CustomButton
                           onClick={handleLogin}
                           label="Login"
-                          className="btn btn-dark btn-lg btn-block"
+                          className="btn btn-lg btn-block login-btn"
                         />
                       </div>
                     </form>
