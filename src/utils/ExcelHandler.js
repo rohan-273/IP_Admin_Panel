@@ -24,8 +24,8 @@ const ExcelHandler = ({ data, searchQuery, filteredData }) => {
 
       ws["!cols"] = [
         { wch: 5 },
-        { wch: 20 },
-        { wch: 20 },
+        { wch: 25 },
+        { wch: 25 },
         { wch: 20 },
         { wch: 20 },
       ];
@@ -38,9 +38,14 @@ const ExcelHandler = ({ data, searchQuery, filteredData }) => {
 
       const blob = new Blob([wbout], { type: "application/octet-stream" });
       const url = URL.createObjectURL(blob);
+
+      // Get today's date in the desired format (DD_MM_YYYY)
+      const today = new Date();
+      const formattedDate = today.toLocaleDateString("en-GB").split("/").reverse().join("_");
+
       const a = document.createElement("a");
       a.href = url;
-      a.download = `IP-yuvak_sabha_${new Date()}.xlsx`;
+      a.download = `IP-yuvak_sabha_${formattedDate}.xlsx`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
