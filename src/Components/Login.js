@@ -4,8 +4,8 @@ import logo from "../_helpers/logo.png";
 import CustomButton from "../utils/CustomButton";
 
 export default function Login({ onLogin }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("admin@gmail.com");
+  const [password, setPassword] = useState("admin@123");
 
   const handleLogin = () => {
     if (username === "admin@gmail.com" && password === "admin@123") {

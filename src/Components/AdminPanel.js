@@ -99,6 +99,15 @@ export default function AdminPanel({ persons, onLogout }) {
     label: person.name,
   }));
 
+  const KaryakarIds = [
+    6, 12, 17, 23, 24, 33, 37, 41, 48, 54, 60, 65, 74, 79, 85, 91, 100, 106,
+    111, 117, 121, 131,
+  ];
+
+  const totalPresentKaryakars = tableData.filter((person) =>
+    KaryakarIds.includes(person.id)
+  ).length;
+
   return (
     <div className="admin-panel">
       <div className="admin-panel-header">
@@ -150,6 +159,19 @@ export default function AdminPanel({ persons, onLogout }) {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
+        <div className="admin-panel-section total-present-section">
+          <div className="total-present-info">
+            <span className="info-label">Total Present Yuvaks:</span>
+            <span className="info-value">
+              {filteredDataTable?.length - totalPresentKaryakars}
+            </span>
+          </div>
+          <div className="total-present-info">
+            <span className="info-label">Total Present Karyakars:</span>
+            <span className="info-value">{totalPresentKaryakars}</span>
+          </div>
+        </div>
+
         <div className="admin-panel-section full-width">
           {filteredDataTable?.length > 0 && (
             <div className="table-container">
