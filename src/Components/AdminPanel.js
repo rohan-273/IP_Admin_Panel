@@ -62,13 +62,13 @@ export default function AdminPanel({ persons, onLogout }) {
       return;
     }
 
-    if (selectedPerson) {
-      setTableData((prevData) => [selectedPerson, ...prevData]);
-      localStorage.setItem(
-        "tableData",
-        JSON.stringify([selectedPerson, ...tableData])
-      );
-    }
+    const currentTime = new Date().toLocaleTimeString();
+    const yuvakWithTime = { ...selectedPerson, time: currentTime }; // Add time property
+    setTableData((prevData) => [yuvakWithTime, ...prevData]);
+    localStorage.setItem(
+      "tableData",
+      JSON.stringify([yuvakWithTime, ...tableData])
+    );
   };
 
   const handleLogout = () => {
@@ -191,6 +191,7 @@ export default function AdminPanel({ persons, onLogout }) {
                     <th>Birth Date</th>
                     <th>Mobile no</th>
                     <th>Sampark Karyakar</th>
+                    <th>Time</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -215,6 +216,7 @@ export default function AdminPanel({ persons, onLogout }) {
                       <td>{person.birthDate}</td>
                       <td>{person.mobile}</td>
                       <td>{person.karyakarName}</td>
+                      <td>{person.time}</td>
                       <td>
                         {/* <CustomButton
                           onClick={() => handleDeleteData(person.id)}

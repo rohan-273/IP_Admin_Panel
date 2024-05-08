@@ -16,6 +16,7 @@ const ExcelHandler = ({ data, searchQuery, filteredData }) => {
         "Yuvak Name": person.name,
         "Birth Date": person.birthDate,
         Mobile: person.mobile,
+        Time: person.time
       }));
 
       const ws = XLSX.utils.json_to_sheet(sheetData);
@@ -26,6 +27,7 @@ const ExcelHandler = ({ data, searchQuery, filteredData }) => {
         { wch: 5 },
         { wch: 25 },
         { wch: 25 },
+        { wch: 20 },
         { wch: 20 },
         { wch: 20 },
       ];
