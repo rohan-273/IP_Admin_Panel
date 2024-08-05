@@ -5,9 +5,10 @@ import ScrollToTop from "react-scroll-up";
 import { useNavigate } from "react-router-dom";
 import CustomModal from "../utils/CustomModal";
 import CustomButton from "../utils/CustomButton";
-import { isToday } from "../utils";
+import { isWithinBirthdayRange } from "../utils";
 import ExcelHandler from "../utils/ExcelHandler";
-import "../styles/AdminPanel.css";
+import "../css/AdminPanel.css";
+import cake from "../_helpers/cake.webp";
 
 export default function AdminPanel({ persons, onLogout }) {
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -63,7 +64,7 @@ export default function AdminPanel({ persons, onLogout }) {
     }
 
     const currentTime = new Date().toLocaleTimeString();
-    const yuvakWithTime = { ...selectedPerson, time: currentTime }; // Add time property
+    const yuvakWithTime = { ...selectedPerson, time: currentTime }; // time property
     setTableData((prevData) => [yuvakWithTime, ...prevData]);
     localStorage.setItem(
       "tableData",
@@ -99,6 +100,7 @@ export default function AdminPanel({ persons, onLogout }) {
     label: person.name,
   }));
 
+  // karyakar ids from the json
   const KaryakarIds = [
     6, 12, 17, 23, 24, 33, 37, 41, 48, 54, 60, 65, 74, 79, 85, 91, 100, 106,
     111, 117, 121, 131,
@@ -196,45 +198,51 @@ export default function AdminPanel({ persons, onLogout }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredDataTable?.map((person) => (
-                    <tr
-                      key={person.id}
-                      style={{
-                        background: isToday(
-                          new Date(
-                            person.birthDate.split("-")[2],
-                            person.birthDate.split("-")[1] - 1,
-                            person.birthDate.split("-")[0]
-                          )
-                        )
-                          ? "#a7ebf4"
-                          : "inherit",
-                      }}
-                    >
-                      <td>{srno++}</td>
-                      <td>{person.name}</td>
-                      <td>{person.birthDate}</td>
-                      <td>{person.mobile}</td>
-                      <td>{person.karyakarName}</td>
-                      <td>{person.time}</td>
-                      <td>
-                        {/* <CustomButton
-                          onClick={() => handleDeleteData(person.id)}
-                          label="Delete"
-                          className="button button-danger"
-                        /> */}
-                        <i
-                          className="fa fa-trash"
-                          onClick={() => handleDeleteData(person.id)}
-                          style={{
-                            color: "red",
-                            cursor: "pointer",
-                            fontSize: 20,
-                          }}
-                        ></i>
-                      </td>
-                    </tr>
-                  ))}
+                  {filteredDataTable?.map((person) => {
+                    const isWithinRange = isWithinBirthdayRange(
+                      new Date(
+                        person.birthDate.split("-")[2],
+                        person.birthDate.split("-")[1] - 1,
+                        person.birthDate.split("-")[0]
+                      )
+                    );
+
+                    return (
+                      <tr
+                        key={person.id}
+                        style={{
+                          background: isWithinRange ? "#a7ebf4" : "inherit",
+                        }}
+                      >
+                        <td>{srno++}</td>
+                        <td>
+                          {person.name}
+                          {isWithinRange && (
+                            <img
+                              src={cake}
+                              alt="birthday_cake"
+                              className="birthday_cake"
+                            />
+                          )}
+                        </td>
+                        <td>{person.birthDate}</td>
+                        <td>{person.mobile}</td>
+                        <td>{person.karyakarName}</td>
+                        <td>{person.time}</td>
+                        <td>
+                          <i
+                            className="fa fa-trash"
+                            onClick={() => handleDeleteData(person.id)}
+                            style={{
+                              color: "red",
+                              cursor: "pointer",
+                              fontSize: 20,
+                            }}
+                          ></i>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

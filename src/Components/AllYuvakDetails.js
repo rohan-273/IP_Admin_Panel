@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ScrollToTop from "react-scroll-up";
-import { isToday } from "../utils";
-import "../styles/AllYuvakDetails.css";
+import { isWithinBirthdayRange } from "../utils";
+import "../css/AllYuvakDetails.css";
+import cake from "../_helpers/cake.webp";
 
 const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
   const location = useLocation();
@@ -55,33 +56,44 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
           </tr>
         </thead>
         <tbody>
-          {filteredPersons?.map((person) => (
-            <tr
-              key={person.id}
-              style={{
-                background: isToday(
-                  new Date(
-                    person.birthDate.split("-")[2],
-                    person.birthDate.split("-")[1] - 1,
-                    person.birthDate.split("-")[0]
-                  )
-                )
-                  ? "#a7ebf4"
-                  : "inherit",
-              }}
-            >
-              <td>{person.sk_ID}</td>
-              <td>{person.karyakarName}</td>
-              <td>{person.name}</td>
-              <td>{person.birthDate}</td>
-              <td>{person.mobile}</td>
-              <td>
-                {filteredDataTable?.find((item) => person?.id === item.id)
-                  ? "Present"
-                  : "Absent"}
-              </td>
-            </tr>
-          ))}
+          {filteredPersons?.map((person) => {
+            const isWithinRange = isWithinBirthdayRange(
+              new Date(
+                person.birthDate.split("-")[2],
+                person.birthDate.split("-")[1] - 1,
+                person.birthDate.split("-")[0]
+              )
+            );
+
+            return (
+              <tr
+                key={person.id}
+                style={{
+                  background: isWithinRange ? "#a7ebf4" : "inherit",
+                }}
+              >
+                <td>{person.sk_ID}</td>
+                <td>{person.karyakarName}</td>
+                <td>
+                  {person.name}{" "}
+                  {isWithinRange && (
+                    <img
+                      src={cake}
+                      alt="birthday_cake"
+                      className="birthday_cake"
+                    />
+                  )}
+                </td>
+                <td>{person.birthDate}</td>
+                <td>{person.mobile}</td>
+                <td>
+                  {filteredDataTable?.find((item) => person?.id === item.id)
+                    ? "Present"
+                    : "Absent"}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <ScrollToTop showUnder={160}>

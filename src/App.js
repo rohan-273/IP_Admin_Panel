@@ -6,7 +6,6 @@ import data from "./_helpers/data.json";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AllYuvakDetails from "./Components/AllYuvakDetails";
 import PageNotFound from "./_helpers/PageNotFound";
-// import Login_Page from "./LocalStorage/Login_Page";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,13 +25,16 @@ const App = () => {
   };
 
   return (
-    <Router>      
+    <Router>
       <div>
         {!isLoggedIn ? (
           <Login onLogin={handleLogin} />
-          ) : (
-            <Routes>            
-            <Route path="/all-yuvak-details" element={<AllYuvakDetails persons={data.persons} />} />
+        ) : (
+          <Routes>
+            <Route
+              path="/all-yuvak-details"
+              element={<AllYuvakDetails persons={data.persons} />}
+            />
             <Route
               path="/dashboard"
               element={
@@ -45,6 +47,6 @@ const App = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
