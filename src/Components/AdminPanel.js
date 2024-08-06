@@ -211,7 +211,7 @@ export default function AdminPanel({ persons, onLogout }) {
                       <tr
                         key={person.id}
                         style={{
-                          background: isWithinRange ? "#a7ebf4" : "inherit",
+                          background: isWithinRange ? "#efd687" : "inherit",
                         }}
                       >
                         <td>{srno++}</td>

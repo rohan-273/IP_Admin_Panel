@@ -69,7 +69,7 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
               <tr
                 key={person.id}
                 style={{
-                  background: isWithinRange ? "#a7ebf4" : "inherit",
+                  background: isWithinRange ? "#efd687" : "inherit",
                 }}
               >
                 <td>{person.sk_ID}</td>

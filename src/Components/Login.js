@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import Akshardham from "../_helpers/Akshardham.jpg";
 import logo from "../_helpers/logo.png";
 import CustomButton from "../utils/CustomButton";
+import { useNavigate } from "react-router-dom";
 
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState("admin@gmail.com");
   const [password, setPassword] = useState("admin@123");
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (username === "admin@gmail.com" && password === "admin@123") {
       localStorage.setItem("isLoggedIn", true);
+      navigate("/dashboard");
       onLogin();
     } else {
       alert("Incorrect email or password. Please try again");
