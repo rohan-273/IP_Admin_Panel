@@ -1,7 +1,8 @@
 {
-  "name": "admin_panel_baps",
+  "name": "ipyuvakmandal",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rohan-273.github.io/IP_Admin_Panel",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
