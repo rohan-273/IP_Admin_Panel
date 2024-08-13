@@ -25,7 +25,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <Router basename={'/IP_Admin_Panel'}>
       <div>
         {!isLoggedIn ? (
           <Login onLogin={handleLogin} />
