@@ -25,7 +25,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
           BRANCH: gh-pages
           FOLDER: build
           CLEAN: true
