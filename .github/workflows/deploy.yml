@@ -17,11 +17,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Set up NodeJS environment
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-
       - name: Install and Build 🔧
         run: |
           npm install
