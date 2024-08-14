@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/IP_Admin_Panel/static/css/main.cec92f02.css",
-    "main.js": "/IP_Admin_Panel/static/js/main.018c6484.js",
+    "main.js": "/IP_Admin_Panel/static/js/main.5fefc68e.js",
     "static/js/787.3760fc41.chunk.js": "/IP_Admin_Panel/static/js/787.3760fc41.chunk.js",
     "static/media/Akshardham.jpg": "/IP_Admin_Panel/static/media/Akshardham.dc9832c8833a74e95c41.jpg",
     "static/media/logo.png": "/IP_Admin_Panel/static/media/logo.0ec911c2bc54fe7e1053.png",
     "static/media/cake.webp": "/IP_Admin_Panel/static/media/cake.89645cea101cdc1553d1.webp",
     "index.html": "/IP_Admin_Panel/index.html",
     "main.cec92f02.css.map": "/IP_Admin_Panel/static/css/main.cec92f02.css.map",
-    "main.018c6484.js.map": "/IP_Admin_Panel/static/js/main.018c6484.js.map",
+    "main.5fefc68e.js.map": "/IP_Admin_Panel/static/js/main.5fefc68e.js.map",
     "787.3760fc41.chunk.js.map": "/IP_Admin_Panel/static/js/787.3760fc41.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cec92f02.css",
-    "static/js/main.018c6484.js"
+    "static/js/main.5fefc68e.js"
   ]
 }
