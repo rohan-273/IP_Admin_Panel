@@ -102,8 +102,8 @@ export default function AdminPanel({ persons, onLogout }) {
 
   // karyakar ids from the json
   const KaryakarIds = [
-    1, 8, 16, 21, 26, 29, 35, 39, 46, 49, 54, 59, 63, 69, 78, 87, 90, 95, 102,
-    108, 110, 117, 121, 126, 129,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25,
   ];
 
   const totalPresentKaryakars = tableData.filter((person) =>
