@@ -505,38 +505,6 @@
       "sk_ID": 14
     },
     {
-      "id": 74,
-      "name": "Patel Harsh Mukeshbhai",
-      "birthDate": "-",
-      "mobile": 6353502035,
-      "karyakarName": "Patel Jainil Virendrabhai",
-      "sk_ID": 14
-    },
-    {
-      "id": 75,
-      "name": "Patel Moksh",
-      "birthDate": "-",
-      "mobile": 9879646386,
-      "karyakarName": "Patel Jainil Virendrabhai",
-      "sk_ID": 14
-    },
-    {
-      "id": 76,
-      "name": "Patel Dharm Jayeshbhai",
-      "birthDate": "23-11-2006",
-      "mobile": 9426943425,
-      "karyakarName": "Patel Jainil Virendrabhai",
-      "sk_ID": 14
-    },
-    {
-      "id": 77,
-      "name": "Patel Jayam Ashwinbhai",
-      "birthDate": "15-03-2007",
-      "mobile": 7874239578,
-      "karyakarName": "Patel Jainil Virendrabhai",
-      "sk_ID": 14
-    },
-    {
       "id": 79,
       "name": "Patel Maharshi Jitendrabhai",
       "birthDate": "24-07-2001",
@@ -893,14 +861,6 @@
       "name": "Suthar Jenil Ashvinbhai",
       "birthDate": "13-10-2003",
       "mobile": 9978606146,
-      "karyakarName": "Brahmbhatt Rohan Pradipbhai",
-      "sk_ID": 25
-    },
-    {
-      "id": 134,
-      "name": "Patel Akshay Hemantbhai",
-      "birthDate": "13-06-1996",
-      "mobile": 7984212662,
       "karyakarName": "Brahmbhatt Rohan Pradipbhai",
       "sk_ID": 25
     },
