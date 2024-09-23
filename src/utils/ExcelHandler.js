@@ -7,7 +7,11 @@ const ExcelHandler = ({ data, searchQuery, filteredData }) => {
     let dataToDownload = searchQuery !== "" ? filteredData : data;
 
     // Sort data based on sk_ID
-    dataToDownload.sort((a, b) => a.sk_ID - b.sk_ID);
+    dataToDownload.sort((a, b) => {
+      if (a.karyakarName === "Extra" && b.karyakarName !== "Extra") return 1;
+      if (a.karyakarName !== "Extra" && b.karyakarName === "Extra") return -1;
+      return a.sk_ID - b.sk_ID 
+    });
 
     if (dataToDownload.length > 0) {
       const sheetData = dataToDownload.map((person) => ({

@@ -150,3 +150,13 @@
     height: 25px;
     margin-left: 10px;
   }
+
+  .extra-yuvak {
+    display: flex;
+  }
+
+  .dlt-btn {
+    color: red;
+    cursor: pointer;
+    font-size: 20;    
+  }

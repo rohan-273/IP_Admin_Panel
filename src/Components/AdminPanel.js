@@ -17,9 +17,11 @@ export default function AdminPanel({ persons, onLogout }) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const [extraYuvakName, setExtraYuvakName] = useState("");
+  const [extraYuvakPhoneno, setExtraYuvakPhoneno] = useState("");
+
   const tableRef = useRef(null);
   const navigate = useNavigate();
-
   let srno = 1;
 
   const openModal = (message) => {
@@ -55,9 +57,7 @@ export default function AdminPanel({ persons, onLogout }) {
       return;
     }
 
-    const isAlreadyAdded = tableData.some(
-      (person) => person.id === selectedPerson.id
-    );
+    const isAlreadyAdded = tableData.some((person) => person.id === selectedPerson.id);
     if (isAlreadyAdded) {
       openModal("This Yuvak entry is already added...");
       return;
@@ -66,10 +66,28 @@ export default function AdminPanel({ persons, onLogout }) {
     const currentTime = new Date().toLocaleTimeString();
     const yuvakWithTime = { ...selectedPerson, time: currentTime }; // time property
     setTableData((prevData) => [yuvakWithTime, ...prevData]);
-    localStorage.setItem(
-      "tableData",
-      JSON.stringify([yuvakWithTime, ...tableData])
-    );
+    localStorage.setItem("tableData", JSON.stringify([yuvakWithTime, ...tableData]));
+  };
+
+  const handleExtraYuvak = () => {
+    if (!extraYuvakName.trim()) {
+      openModal("Please enter the Yuvak name.");
+      return;
+    }
+
+    const currentTime = new Date().toLocaleTimeString();
+    const newExtraYuvak = {
+      id: Date.now(), // Generate unique id for extra yuvak
+      name: extraYuvakName,
+      birthDate: "-",
+      mobile: extraYuvakPhoneno,
+      karyakarName: "Extra",
+      time: currentTime,
+    };
+    setTableData((prevData) => [newExtraYuvak, ...prevData]);
+    localStorage.setItem("tableData", JSON.stringify([newExtraYuvak, ...tableData]));
+    setExtraYuvakName("");
+    setExtraYuvakPhoneno("");
   };
 
   const handleLogout = () => {
@@ -84,16 +102,12 @@ export default function AdminPanel({ persons, onLogout }) {
   };
 
   const handleDeleteData = (personId) => {
-    const updatedTableData = tableData?.filter(
-      (person) => person.id !== personId
-    );
+    const updatedTableData = tableData?.filter((person) => person.id !== personId);
     setTableData(updatedTableData);
     localStorage.setItem("tableData", JSON.stringify(updatedTableData));
   };
 
-  const filteredDataTable = tableData?.filter((person) =>
-    person?.karyakarName?.toLowerCase()?.includes(searchQuery?.toLowerCase())
-  );
+  const filteredDataTable = tableData?.filter((person) => person?.karyakarName?.toLowerCase()?.includes(searchQuery?.toLowerCase()));
 
   const options = persons?.map((person) => ({
     value: person.id,
@@ -106,9 +120,7 @@ export default function AdminPanel({ persons, onLogout }) {
     22, 23, 24, 25,
   ];
 
-  const totalPresentKaryakars = tableData.filter((person) =>
-    KaryakarIds.includes(person.id)
-  ).length;
+  const totalPresentKaryakars = tableData.filter((person) => KaryakarIds.includes(person.id)).length;
 
   return (
     <div className="admin-panel">
@@ -147,9 +159,31 @@ export default function AdminPanel({ persons, onLogout }) {
               className="button button-success ml-2"
             />
           </div>
+          {selectedPerson && <PersonDetails person={selectedPerson} />}
         </div>
         <div className="admin-panel-section">
-          {selectedPerson && <PersonDetails person={selectedPerson} />}
+          <label className="admin-panel-label">Extra Yuvak:</label>
+            <div className="extra-yuvak">
+              <input
+                type="text"
+                placeholder="Enter yuvak name"
+                className="search-input"
+                value={extraYuvakName}
+                onChange={(e) => setExtraYuvakName(e.target.value)}
+              />
+              <input
+                type="number"
+                placeholder="Enter mobile no"
+                className="search-input"
+                value={extraYuvakPhoneno}
+                onChange={(e) => setExtraYuvakPhoneno(e.target.value)}
+              />
+            </div>
+          <CustomButton
+            onClick={handleExtraYuvak}
+            label="Add Extra Yuvak"
+            className="button button-success"
+          />
         </div>
         <div className="admin-panel-section">
           <label className="admin-panel-label">Search by Karyakar Name:</label>
@@ -163,14 +197,20 @@ export default function AdminPanel({ persons, onLogout }) {
         </div>
         <div className="admin-panel-section total-present-section">
           <div className="total-present-info">
-            <span className="info-label">Total Present Yuvaks:</span>
+            <span className="info-label">Present Sampark Karyakars:</span>
+            <span className="info-value">{totalPresentKaryakars}</span>
+          </div>
+          <div className="total-present-info">
+            <span className="info-label">Present Registered Yuvaks:</span>
             <span className="info-value">
-              {filteredDataTable?.length - totalPresentKaryakars}
+              {filteredDataTable?.filter((person) => person.karyakarName !== "Extra" && !KaryakarIds.includes(person.id)).length}
             </span>
           </div>
           <div className="total-present-info">
-            <span className="info-label">Total Present Karyakars:</span>
-            <span className="info-value">{totalPresentKaryakars}</span>
+            <span className="info-label">Extra Yuvaks:</span>
+            <span className="info-value">
+              {tableData?.filter((person) => person.karyakarName === "Extra").length}
+            </span>
           </div>
         </div>
 
@@ -206,40 +246,20 @@ export default function AdminPanel({ persons, onLogout }) {
                         person.birthDate.split("-")[0]
                       )
                     );
-
                     return (
-                      <tr
-                        key={person.id}
-                        style={{
-                          background: isWithinRange ? "#efd687" : "inherit",
-                        }}
-                      >
+                      <tr key={person.id} style={{ background: isWithinRange ? "#efd687" : "inherit" }}>
                         <td>{srno++}</td>
                         <td>
                           {person.name}
                           {isWithinRange && (
-                            <img
-                              src={cake}
-                              alt="birthday_cake"
-                              className="birthday_cake"
-                            />
+                            <img src={cake} alt="birthday_cake" className="birthday_cake" />
                           )}
                         </td>
                         <td>{person.birthDate}</td>
                         <td>{person.mobile}</td>
                         <td>{person.karyakarName}</td>
                         <td>{person.time}</td>
-                        <td>
-                          <i
-                            className="fa fa-trash"
-                            onClick={() => handleDeleteData(person.id)}
-                            style={{
-                              color: "red",
-                              cursor: "pointer",
-                              fontSize: 20,
-                            }}
-                          ></i>
-                        </td>
+                        <td><i className="fa fa-trash dlt-btn" onClick={() => handleDeleteData(person.id)}></i></td>
                       </tr>
                     );
                   })}
