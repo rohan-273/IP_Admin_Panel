@@ -136,7 +136,7 @@ export default function AdminPanel({ persons, onLogout }) {
           <CustomButton
             onClick={handleLogout}
             label="Logout"
-            className="button button-danger"
+            className="button button-danger float-right"
           />
         </div>
       </div>

@@ -86,7 +86,15 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
                 </td>
                 <td>{person.birthDate}</td>
                 <td>{person.mobile}</td>
-                <td>
+                <td
+                  style={{
+                    color: filteredDataTable?.find(
+                      (item) => person?.id === item.id
+                    )
+                      ? "green"
+                      : "red",
+                  }}
+                >
                   {filteredDataTable?.find((item) => person?.id === item.id)
                     ? "Present"
                     : "Absent"}
