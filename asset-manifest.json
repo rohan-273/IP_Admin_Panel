@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/IP_Admin_Panel/static/css/main.4781f05f.css",
-    "main.js": "/IP_Admin_Panel/static/js/main.77320aa5.js",
+    "main.js": "/IP_Admin_Panel/static/js/main.dd53ae11.js",
     "static/js/787.3760fc41.chunk.js": "/IP_Admin_Panel/static/js/787.3760fc41.chunk.js",
     "static/media/Akshardham.jpg": "/IP_Admin_Panel/static/media/Akshardham.dc9832c8833a74e95c41.jpg",
     "static/media/logo.png": "/IP_Admin_Panel/static/media/logo.0ec911c2bc54fe7e1053.png",
     "static/media/cake.webp": "/IP_Admin_Panel/static/media/cake.89645cea101cdc1553d1.webp",
     "index.html": "/IP_Admin_Panel/index.html",
     "main.4781f05f.css.map": "/IP_Admin_Panel/static/css/main.4781f05f.css.map",
-    "main.77320aa5.js.map": "/IP_Admin_Panel/static/js/main.77320aa5.js.map",
+    "main.dd53ae11.js.map": "/IP_Admin_Panel/static/js/main.dd53ae11.js.map",
     "787.3760fc41.chunk.js.map": "/IP_Admin_Panel/static/js/787.3760fc41.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4781f05f.css",
-    "static/js/main.77320aa5.js"
+    "static/js/main.dd53ae11.js"
   ]
 }
