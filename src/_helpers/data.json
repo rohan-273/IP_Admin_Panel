@@ -2,7 +2,7 @@
   "persons": [
     {
       "id": 1,
-      "name": "Patel Chirag Kantibhai (S)",
+      "name": "Patel Chirag Kantibhai (N)",
       "birthDate": "-",
       "mobile": 9558620500,
       "karyakarName": "Patel Chirag Kantibhai",
@@ -58,7 +58,7 @@
     },
     {
       "id": 8,
-      "name": "Dhaval Bharatbhai Thakor (SS)",
+      "name": "Dhaval Bharatbhai Thakor (S)",
       "birthDate": "20-05-1992",
       "mobile": 9638588616,
       "karyakarName": "Dhaval Bharatbhai Thakor",
@@ -175,15 +175,7 @@
       "mobile": 9537229949,
       "karyakarName": "Virani Bhaumik",
       "sk_ID": 4
-    },
-    {
-      "id": 23,
-      "name": "Rathva Sunil Navalsinh (SK)",
-      "birthDate": "-",
-      "mobile": "-",
-      "karyakarName": "Virani Bhaumik",
-      "sk_ID": 4
-    },
+    },    
     {
       "id": 24,
       "name": "Parmar Ashutosh Govindbhai (SK)",
@@ -201,10 +193,34 @@
       "sk_ID": 4
     },
     {
+      "id": 58,
+      "name": "Patel Krunal Snehalbhai",
+      "birthDate": "21-09-2003",
+      "mobile": 9712240697,
+      "karyakarName": "Virani Bhaumik",
+      "sk_ID": 4
+    },
+    {
+      "id": 137,
+      "name": "Dharmik Jasani",
+      "birthDate": "-",
+      "mobile": 9157380808,
+      "karyakarName": "Virani Bhaumik",
+      "sk_ID": 4
+    },
+    {
       "id": 27,
       "name": "Sharma Mayur Bhaveshbhai",
       "birthDate": "30-05-2001",
       "mobile": 8200188170,
+      "karyakarName": "Machhi Ajay Lalabhai",
+      "sk_ID": 5
+    },
+    {
+      "id": 23,
+      "name": "Rathva Sunil Navalsinh (SK)",
+      "birthDate": "-",
+      "mobile": "-",
       "karyakarName": "Machhi Ajay Lalabhai",
       "sk_ID": 5
     },
@@ -221,39 +237,119 @@
       "name": "Rathva Niraj Ramdasbhai",
       "birthDate": "16-06-2000",
       "mobile": 8238994834,
-      "karyakarName": "Rathva Sunil Navalsinh",
-      "sk_ID": 6
+      "karyakarName": "Machhi Ajay Lalabhai",
+      "sk_ID": 5
     },
     {
       "id": 31,
       "name": "Parihar Sarthak Bhaveshbhai",
       "birthDate": "06-08-2001",
       "mobile": 8238256919,
-      "karyakarName": "Rathva Sunil Navalsinh",
-      "sk_ID": 6
+      "karyakarName": "Machhi Ajay Lalabhai",
+      "sk_ID": 5
     },
     {
       "id": 32,
       "name": "Parmar Keyur Sunilbhai",
       "birthDate": "26-06-2006",
       "mobile": 8160317814,
-      "karyakarName": "Rathva Sunil Navalsinh",
-      "sk_ID": 6
+      "karyakarName": "Machhi Ajay Lalabhai",
+      "sk_ID": 5
     },
     {
       "id": 33,
       "name": "Brahmbhatt Yogesh Daxeshbhai",
       "birthDate": "03-08-2006",
       "mobile": 9998815087,
-      "karyakarName": "Rathva Sunil Navalsinh",
-      "sk_ID": 6
+      "karyakarName": "Machhi Ajay Lalabhai",
+      "sk_ID": 5
     },
     {
       "id": 34,
       "name": "Gadve Harshvardhan Kiranbhai",
       "birthDate": "-",
       "mobile": "-",
-      "karyakarName": "Rathva Sunil Navalsinh",
+      "karyakarName": "Machhi Ajay Lalabhai",
+      "sk_ID": 5
+    },
+    {
+      "id": 138,
+      "name": "Bhagyesh",
+      "birthDate": "-",
+      "mobile": 9327391172,
+      "karyakarName": "Machhi Ajay Lalabhai",
+      "sk_ID": 5
+    },
+    {
+      "id": 139,
+      "name": "Sunil Tadvi",
+      "birthDate": "-",
+      "mobile": "-",
+      "karyakarName": "Machhi Ajay Lalabhai",
+      "sk_ID": 5
+    },
+    {
+      "id": 140,
+      "name": "",
+      "birthDate": "-",
+      "mobile": "-",
+      "karyakarName": "Machhi Ajay Lalabhai",
+      "sk_ID": 5
+    },
+    {
+      "id": 91,
+      "name": "Parmar Krutarth Dineshbhai",
+      "birthDate": "20-02-2005",
+      "mobile": 9313439395,
+      "karyakarName": "Patel Krunal SnehalBhai",
+      "sk_ID": 6
+    },
+    {
+      "id": 92,
+      "name": "Rathva Hardik Chhabirambhai",
+      "birthDate": "02-05-2005",
+      "mobile": 9723655820,
+      "karyakarName": "Patel Krunal SnehalBhai",
+      "sk_ID": 6
+    },
+    {
+      "id": 93,
+      "name": "Rathva Gautam Kalsibhai",
+      "birthDate": "07-12-2005",
+      "mobile": 9998954583,
+      "karyakarName": "Patel Krunal SnehalBhai",
+      "sk_ID": 6
+    },
+    {
+      "id": 94,
+      "name": "Rathva Prashant Madhavsinh",
+      "birthDate": "-",
+      "mobile": "-",
+      "karyakarName": "Patel Krunal SnehalBhai",
+      "sk_ID": 6
+    },
+    {
+      "id": 140,
+      "name": "Gohil Vraj",
+      "birthDate": "-",
+      "mobile": 8849299294,
+      "karyakarName": "Patel Krunal SnehalBhai",
+      "sk_ID": 6
+    },
+    {
+      "id": 141,
+      "name": "Mistry Jay",
+      "birthDate": "-",
+      "mobile": 7990613980,
+      "karyakarName": "Patel Krunal SnehalBhai",
+      "sk_ID": 6
+    },
+    {
+      "id": 142,
+      "name": "Patel Kirtan",
+      "birthDate": "-",
+      "mobile": 7359576961,
+      "karyakarName": "Patel Krunal SnehalBhai",
       "sk_ID": 6
     },
     {
@@ -277,6 +373,70 @@
       "name": "Patel Hriday Sanjaybhai",
       "birthDate": "15-05-2005",
       "mobile": 9924099216,
+      "karyakarName": "Parmar Ashutosh Govindbhai",
+      "sk_ID": 7
+    },
+    {
+      "id": 144,
+      "name": "Soni Keyur",
+      "birthDate": "-",
+      "mobile": 9081814933,
+      "karyakarName": "Parmar Ashutosh Govindbhai",
+      "sk_ID": 7
+    },
+    {
+      "id": 145,
+      "name": "Soni Ravi",
+      "birthDate": "-",
+      "mobile": 7359399019,
+      "karyakarName": "Parmar Ashutosh Govindbhai",
+      "sk_ID": 7
+    },
+    {
+      "id": 146,
+      "name": "Soni Rutvik",
+      "birthDate": "-",
+      "mobile": 9924814933,
+      "karyakarName": "Parmar Ashutosh Govindbhai",
+      "sk_ID": 7
+    },
+    {
+      "id": 147,
+      "name": "Patel Rudra",
+      "birthDate": "-",
+      "mobile": 9904393744,
+      "karyakarName": "Parmar Ashutosh Govindbhai",
+      "sk_ID": 7
+    },
+    {
+      "id": 148,
+      "name": "Barot Yash",
+      "birthDate": "-",
+      "mobile": 8401600154,
+      "karyakarName": "Parmar Ashutosh Govindbhai",
+      "sk_ID": 7
+    },
+    {
+      "id": 149,
+      "name": "Vandra Siddharth",
+      "birthDate": "-",
+      "mobile": 9998467339,
+      "karyakarName": "Parmar Ashutosh Govindbhai",
+      "sk_ID": 7
+    },
+    {
+      "id": 150,
+      "name": "Kathiya Rudra",
+      "birthDate": "-",
+      "mobile": 8401762707,
+      "karyakarName": "Parmar Ashutosh Govindbhai",
+      "sk_ID": 7
+    },
+    {
+      "id": 151,
+      "name": "Parmar Jaydeepsinh",
+      "birthDate": "-",
+      "mobile": "-",
       "karyakarName": "Parmar Ashutosh Govindbhai",
       "sk_ID": 7
     },
@@ -329,6 +489,22 @@
       "sk_ID": 8
     },
     {
+      "id": 152,
+      "name": "Meet",
+      "birthDate": "-",
+      "mobile": 7567153160,
+      "karyakarName": "Bhagat Sachin Jayendrabhai",
+      "sk_ID": 8
+    },
+    {
+      "id": 153,
+      "name": "Panchal Mayur",
+      "birthDate": "-",
+      "mobile": 9909256280,
+      "karyakarName": "Bhagat Sachin Jayendrabhai",
+      "sk_ID": 8
+    },
+    {
       "id": 47,
       "name": "Patel Harsh Pankajbhai",
       "birthDate": "12-04-2003",
@@ -341,6 +517,30 @@
       "name": "Thakor Roshan Rohitbhai",
       "birthDate": "-",
       "mobile": "-",
+      "karyakarName": "Rajput Chirag Sanjaybhai",
+      "sk_ID": 9
+    },
+    {
+      "id": 154,
+      "name": "Darshan",
+      "birthDate": "-",
+      "mobile": 9510207412,
+      "karyakarName": "Rajput Chirag Sanjaybhai",
+      "sk_ID": 9
+    },
+    {
+      "id": 155,
+      "name": "Patel Kirtan",
+      "birthDate": "-",
+      "mobile": 8735072632,
+      "karyakarName": "Rajput Chirag Sanjaybhai",
+      "sk_ID": 9
+    },
+    {
+      "id": 156,
+      "name": "Patel Divyang",
+      "birthDate": "-",
+      "mobile": 9925699864,
       "karyakarName": "Rajput Chirag Sanjaybhai",
       "sk_ID": 9
     },
@@ -377,6 +577,14 @@
       "sk_ID": 10
     },
     {
+      "id": 157,
+      "name": "Patel Divya",
+      "birthDate": "-",
+      "mobile": 9979338359,
+      "karyakarName": "Rathva Devang Arvindbhai",
+      "sk_ID": 10
+    },
+    {
       "id": 55,
       "name": "Padariya Kandarp Shailendresinh",
       "birthDate": "07-11-2001",
@@ -399,12 +607,28 @@
       "mobile": "-",
       "karyakarName": "Patel Rudra Nileshbhai",
       "sk_ID": 11
-    },
+    },  
     {
-      "id": 58,
-      "name": "Patel Krunal Snehalbhai",
-      "birthDate": "21-09-2003",
-      "mobile": 9712240697,
+      "id": 158,
+      "name": "Patel Jeel",
+      "birthDate": "-",
+      "mobile": 9173357602,
+      "karyakarName": "Patel Rudra Nileshbhai",
+      "sk_ID": 11
+    },  
+    {
+      "id": 159,
+      "name": "Patel Jay JayeshBhai",
+      "birthDate": "-",
+      "mobile": 9104244602,
+      "karyakarName": "Patel Rudra Nileshbhai",
+      "sk_ID": 11
+    }, 
+    {
+      "id": 160,
+      "name": "Prajapati Dhairya",
+      "birthDate": "-",
+      "mobile": 9724866564,
       "karyakarName": "Patel Rudra Nileshbhai",
       "sk_ID": 11
     },
@@ -413,14 +637,6 @@
       "name": "Dasadiya Aryan Ashokbhai",
       "birthDate": "-",
       "mobile": 9313853225,
-      "karyakarName": "Thakkar Tejas Hardikbhai",
-      "sk_ID": 12
-    },
-    {
-      "id": 61,
-      "name": "Jethwa Nikul Dineshbhai",
-      "birthDate": "04-09-2000",
-      "mobile": 8155046244,
       "karyakarName": "Thakkar Tejas Hardikbhai",
       "sk_ID": 12
     },
@@ -473,6 +689,30 @@
       "sk_ID": 13
     },
     {
+      "id": 161,
+      "name": "Patel Jay P.",
+      "birthDate": "-",
+      "mobile": 7990950279,
+      "karyakarName": "Vanzara Gautam Mukeshbhai",
+      "sk_ID": 13
+    },
+    {
+      "id": 162,
+      "name": "Patel Prince",
+      "birthDate": "-",
+      "mobile": 9998809606,
+      "karyakarName": "Vanzara Gautam Mukeshbhai",
+      "sk_ID": 13
+    },
+    {
+      "id": 163,
+      "name": "Shikari Mehul",
+      "birthDate": "-",
+      "mobile": 9979369486,
+      "karyakarName": "Vanzara Gautam Mukeshbhai",
+      "sk_ID": 13
+    },
+    {
       "id": 70,
       "name": "Patel Rudra Hirenbhai",
       "birthDate": "13-08-2005",
@@ -501,6 +741,22 @@
       "name": "Patel Akshar Jayeshbhai",
       "birthDate": "18-01-2005",
       "mobile": 9898018857,
+      "karyakarName": "Patel Jainil Virendrabhai",
+      "sk_ID": 14
+    },
+    {
+      "id": 164,
+      "name": "Panchal Maulik",
+      "birthDate": "-",
+      "mobile": "-",
+      "karyakarName": "Patel Jainil Virendrabhai",
+      "sk_ID": 14
+    },
+    {
+      "id": 165,
+      "name": "Patel Yogi",
+      "birthDate": "-",
+      "mobile": 9664581177,
       "karyakarName": "Patel Jainil Virendrabhai",
       "sk_ID": 14
     },
@@ -569,6 +825,43 @@
       "sk_ID": 15
     },
     {
+      "id": 166,
+      "name": "Patel Dhairya",
+      "birthDate": "-",
+      "mobile": "-",
+      "karyakarName": "Brahmbhatt Hardik Pushpakantbhai",
+      "sk_ID": 15
+    },
+    {
+      "id": 167,
+      "name": "Rathva Mayur JasvantBhai",
+      "birthDate": "-",
+      "mobile": 8866415817,
+      "karyakarName": "Brahmbhatt Hardik Pushpakantbhai",
+      "sk_ID": 15
+    },
+    {
+      "id": 168,
+      "name": "Patel Dhrutik",
+      "birthDate": "-",
+      "mobile": 9664622718,
+      "karyakarName": "Brahmbhatt Hardik Pushpakantbhai",
+      "sk_ID": 15
+    },
+    {
+      "id": 169,
+      "name": "Chavda Jay",
+      "birthDate": "-",
+      "mobile": 8200880974,
+      "karyakarName": "Brahmbhatt Hardik Pushpakantbhai",
+      "sk_ID": 15
+    },
+
+
+
+
+    
+    {
       "id": 88,
       "name": "Rao Manav hiteshbhai",
       "birthDate": "09-11-2001",
@@ -583,39 +876,7 @@
       "mobile": 8735892424,
       "karyakarName": "Chauhan Dixit Dharmeshbhai",
       "sk_ID": 16
-    },
-    {
-      "id": 91,
-      "name": "Parmar Krutarth Dineshbhai",
-      "birthDate": "20-02-2005",
-      "mobile": 9313439395,
-      "karyakarName": "Mehul Arvindbhai Rathva",
-      "sk_ID": 17
-    },
-    {
-      "id": 92,
-      "name": "Rathva Hardik Chhabirambhai",
-      "birthDate": "02-05-2005",
-      "mobile": 9723655820,
-      "karyakarName": "Mehul Arvindbhai Rathva",
-      "sk_ID": 17
-    },
-    {
-      "id": 93,
-      "name": "Rathva Gautam Kalsibhai",
-      "birthDate": "07-12-2005",
-      "mobile": 9998954583,
-      "karyakarName": "Mehul Arvindbhai Rathva",
-      "sk_ID": 17
-    },
-    {
-      "id": 94,
-      "name": "Rathva Prashant Madhavsinh",
-      "birthDate": "-",
-      "mobile": "-",
-      "karyakarName": "Mehul Arvindbhai Rathva",
-      "sk_ID": 17
-    },
+    },        
     {
       "id": 96,
       "name": "Patel Yagna Hiteshbhai",
