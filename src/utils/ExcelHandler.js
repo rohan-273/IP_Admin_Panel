@@ -2,7 +2,7 @@ import React from "react";
 import * as XLSX from "xlsx";
 import CustomButton from "./CustomButton";
 
-const ExcelHandler = ({ data, searchQuery, filteredData }) => {
+const ExcelHandler = ({ data, searchQuery, filteredData, customColumns }) => {
   const handleDownloadExcel = () => {
     let dataToDownload = searchQuery !== "" ? filteredData : data;
 
@@ -10,31 +10,34 @@ const ExcelHandler = ({ data, searchQuery, filteredData }) => {
     dataToDownload.sort((a, b) => {
       if (a.karyakarName === "Extra" && b.karyakarName !== "Extra") return 1;
       if (a.karyakarName !== "Extra" && b.karyakarName === "Extra") return -1;
-      return a.sk_ID - b.sk_ID 
+      return a.sk_ID - b.sk_ID;
     });
 
-    if (dataToDownload.length > 0) {
-      const sheetData = dataToDownload.map((person) => ({
-        sk_ID: person.sk_ID,
-        "Karyakar Name": person.karyakarName,
-        "Yuvak Name": person.name,
-        "Birth Date": person.birthDate,
-        Mobile: person.mobile,
-        Time: person.time
-      }));
+    if (dataToDownload?.length > 0) {
+      const sheetData = dataToDownload?.map((person) => {
+        if (customColumns) {
+          // Use custom columns if provided
+          return customColumns.reduce((acc, col) => {
+            acc[col.label] = col.value(person);
+            return acc;
+          }, {});
+        }
+      });
 
       const ws = XLSX.utils.json_to_sheet(sheetData);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
 
-      ws["!cols"] = [
-        { wch: 5 },
-        { wch: 25 },
-        { wch: 25 },
-        { wch: 20 },
-        { wch: 20 },
-        { wch: 20 },
-      ];
+      ws["!cols"] = customColumns
+        ? customColumns?.map((col) => ({ wch: col.width || 20 }))
+        : [
+            { wch: 5 },
+            { wch: 25 },
+            { wch: 25 },
+            { wch: 20 },
+            { wch: 20 },
+            { wch: 20 },
+          ];
 
       const wbout = XLSX.write(wb, {
         bookType: "xlsx",
@@ -67,5 +70,6 @@ const ExcelHandler = ({ data, searchQuery, filteredData }) => {
     />
   );
 };
+
 
 export default ExcelHandler;

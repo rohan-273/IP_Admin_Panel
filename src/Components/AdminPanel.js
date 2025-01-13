@@ -122,6 +122,15 @@ export default function AdminPanel({ persons, onLogout }) {
 
   const totalPresentKaryakars = tableData.filter((person) => KaryakarIds.includes(person.id)).length;
 
+  const customColumns = [
+    { label: "sk_ID", value: (person) => person.sk_ID, width: 10 },
+    { label: "Sampark Karyakar", value: (person) => person.karyakarName, width: 25 },
+    { label: "Yuvak Name", value: (person) => person.name, width: 25 },
+    { label: "Birth Date", value: (person) => person.birthDate, width: 15 },
+    { label: "Mobile no", value: (person) => person.mobile, width: 15 },
+    { label: "Time", value: (person) => person.time, width: 15 },
+  ];
+
   return (
     <div className="admin-panel">
       <div className="admin-panel-header">
@@ -223,6 +232,7 @@ export default function AdminPanel({ persons, onLogout }) {
                   data={tableData}
                   searchQuery={searchQuery}
                   filteredData={filteredDataTable}
+                  customColumns={customColumns}
                 />
               </div>
               <table className="custom-table" ref={tableRef}>

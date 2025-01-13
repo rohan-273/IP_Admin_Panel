@@ -4,8 +4,9 @@ import ScrollToTop from "react-scroll-up";
 import { isWithinBirthdayRange } from "../utils";
 import "../css/AllYuvakDetails.css";
 import cake from "../_helpers/cake.webp";
+import ExcelHandler from "../utils/ExcelHandler";
 
-const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
+const AllYuvakDetails = ({ onBack, persons }) => {
   const location = useLocation();
   const filteredDataTable = location.state.filteredDataTable;
 
@@ -24,6 +25,22 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
     })
     .sort((a, b) => a.sk_ID - b.sk_ID);
 
+  const customColumns = [
+    { label: "Sk ID", value: (person) => person.sk_ID, width: 10 },
+    { label: "Sampark Karyakar", value: (person) => person.karyakarName, width: 25 },
+    { label: "Yuvak Name", value: (person) => person.name, width: 25 },
+    { label: "Birth Date", value: (person) => person.birthDate, width: 15 },
+    { label: "Mobile no", value: (person) => person.mobile, width: 15 },
+    {
+      label: "Status",
+      value: (person) =>
+        filteredDataTable?.find((item) => person?.id === item.id)
+          ? "Present"
+          : "Absent",
+      width: 10,
+    },
+  ];
+
   return (
     <div className="m-3">
       <div className="d-flex justify-content-between align-items-center">
@@ -33,16 +50,26 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
         </Link>
       </div>
       <hr />
-      <div className="mb-3">
-        <label>
-          Search:
-          <input
-            type="text"
-            value={searchTerm}
-            className="form-control"
-            onChange={(e) => setSearchTerm(e.target.value)}
+      <div className="d-flex justify-content-between align-items-center">
+        <div className="mb-3">
+          <label>
+            Search:
+            <input
+              type="text"
+              value={searchTerm}
+              className="form-control"
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </label>
+        </div>
+        <div>
+          <ExcelHandler
+            data={persons}
+            searchQuery={searchTerm}
+            filteredData={filteredPersons}
+            customColumns={customColumns}
           />
-        </label>
+        </div>
       </div>
       <table className="table table_shadow">
         <thead>
@@ -110,7 +137,7 @@ const AllYuvakDetails = ({ allPersons, onBack, persons }) => {
           aria-hidden="true"
           style={{ fontSize: 40 }}
         ></i>
-      </ScrollToTop>
+      </ScrollToTop>      
     </div>
   );
 };
