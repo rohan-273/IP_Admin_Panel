@@ -111,7 +111,7 @@ export default function AdminPanel({ persons, onLogout }) {
 
   const options = persons?.map((person) => ({
     value: person.id,
-    label: person.name,
+    label: `${person.id} - ${person.name}`,
   }));
 
   // karyakar ids from the json

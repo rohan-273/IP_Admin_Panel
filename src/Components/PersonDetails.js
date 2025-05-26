@@ -4,13 +4,15 @@ export default function PersonDetails({person}) {
   return (
     <div style={{marginTop: 15}}>
         <table className="table mt-2 table_shadow">
-            <tr>                
+            <tr>               
+                <th>ID</th> 
                 <th>Name</th>
                 <th>Birth Date</th>
                 <th>Mobile no</th>
                 <th>Sampark Karyakar</th>
             </tr>
             <tr>
+                <td>{person.id}</td>
                 <td>{person.name}</td>
                 <td>{person.birthDate}</td>
                 <td>{person.mobile}</td>

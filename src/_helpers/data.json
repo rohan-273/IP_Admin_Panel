@@ -289,14 +289,6 @@
       "sk_ID": 5
     },
     {
-      "id": 140,
-      "name": "",
-      "birthDate": "-",
-      "mobile": "-",
-      "karyakarName": "Machhi Ajay Lalabhai",
-      "sk_ID": 5
-    },
-    {
       "id": 91,
       "name": "Parmar Krutarth Dineshbhai",
       "birthDate": "20-02-2005",
@@ -329,7 +321,7 @@
       "sk_ID": 6
     },
     {
-      "id": 140,
+      "id": 228,
       "name": "Gohil Vraj",
       "birthDate": "-",
       "mobile": 8849299294,
@@ -1041,7 +1033,7 @@
       "sk_ID": 20
     },
     {
-      "id": 176,
+      "id": 217,
       "name": "GuruShran",
       "birthDate": "-",
       "mobile": 9574139153,
@@ -1514,3 +1506,4 @@
     }
   ]
 }
+
