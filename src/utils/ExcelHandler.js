@@ -16,13 +16,14 @@ const ExcelHandler = ({ data, searchQuery, filteredData, customColumns }) => {
     if (dataToDownload?.length > 0) {
       const sheetData = dataToDownload?.map((person) => {
         if (customColumns) {
-          // Use custom columns if provided
           return customColumns.reduce((acc, col) => {
             acc[col.label] = col.value(person);
             return acc;
           }, {});
+        } else {
+          return {}; // return fallback value if needed, or handle differently
         }
-      });
+      });      
 
       const ws = XLSX.utils.json_to_sheet(sheetData);
       const wb = XLSX.utils.book_new();
