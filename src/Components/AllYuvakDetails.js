@@ -28,6 +28,7 @@ const AllYuvakDetails = ({ onBack, persons }) => {
   const customColumns = [
     { label: "Sk ID", value: (person) => person.sk_ID, width: 10 },
     { label: "Sampark Karyakar", value: (person) => person.karyakarName, width: 25 },
+    { label: "Yuvak ID", value: (person) => person.id, width: 10 },
     { label: "Yuvak Name", value: (person) => person.name, width: 25 },
     { label: "Birth Date", value: (person) => person.birthDate, width: 15 },
     { label: "Mobile no", value: (person) => person.mobile, width: 15 },
@@ -76,6 +77,7 @@ const AllYuvakDetails = ({ onBack, persons }) => {
           <tr>
             <th>Sk ID</th>
             <th>Sampark Karyakar</th>
+            <th>Yuvak ID</th>
             <th>Yuvak Name</th>
             <th>Birth Date</th>
             <th>Mobile no</th>
@@ -101,6 +103,7 @@ const AllYuvakDetails = ({ onBack, persons }) => {
               >
                 <td>{person.sk_ID}</td>
                 <td>{person.karyakarName}</td>
+                <td>{person.id}</td>
                 <td>
                   {person.name}{" "}
                   {isWithinRange && (
